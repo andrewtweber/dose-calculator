@@ -20,23 +20,32 @@ Implement the `MedicineContract`. Doses should be stored in "mg/kg", concentrati
 The doses are returned in "mL" but only the numerical value is returned.
 
 ```php
+$medicine = new Medicine(
+    min_dose: '20mg/kg',
+    max_dose: '40mg/kg',
+    concentration: '50mg/mL',
+);
 $calculator = new DoseCalculator($medicine);
 
-// Calculate minimum dose for a patient that weighs 1.2 kg
-$calculator->calculate(1.2, max: false);
-// "0.25"
+// Returns minimum dose by default
+$calculator->calculate(0.834); 
+// "0.33"
 
-// Calculate minimum dose for a patient that weighs 1.2 kg with specified precision
-$calculator->calculate(1.2, max: false, final_precision: 1);
-// "0.3"
+// Specify precision
+$calculator->calculate(0.834, final_precision: 3);
+// "0.334"
 
-// Calculate maximum dose for a patient that weighs 1.2 kg
-$calculator->calculate(1.2, max: true);
-// "0.5"
+// Maximum dose
+$calculator->calculate(0.834, max: true);
+// "0.67"
 
-// Calculate min-max range for a patient that weighs 1.2kg
-$calculator->calculateRange(1.2);
-// "0.25 - 0.5"
+// Get the min-max range
+$calculator->calculateRange(0.834);
+// "0.33 - 0.67"
+
+// Specify precision for range
+$calculator->calculateRange(0.834, final_precision: 4);
+// "0.3336 - 0.6672"
 ```
 
 ## Testing
