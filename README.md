@@ -1,10 +1,10 @@
 # Dose Calculator
 
-(CircleCI)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/andrewtweber/dose-calculator/tree/master.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/andrewtweber/dose-calculator/tree/master)
 
 ## About
 
-Dose Calculator
+Little package to make calculating medicine doses easier.
 
 ## Installation
 
