@@ -1,0 +1,36 @@
+{
+    "name": "andrewtweber/dose-calculator",
+    "type": "library",
+    "description": "Dose calculator",
+    "keywords": [
+        "laravel"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Weber",
+            "homepage": "https://andrew.cool"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "laravel/framework": "^8.12|^9.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.17",
+        "phpunit/phpunit": "^9"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "DoseCalculator\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DoseCalculator\\Tests\\": "tests/"
+        }
+    }
+}
