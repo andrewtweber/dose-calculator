@@ -4,7 +4,8 @@
 
 ## About
 
-Little package to make calculating medicine doses easier.
+Little package to make calculating medicine doses easier. Literally just made this a package so I could
+reuse it between two projects.
 
 ## Installation
 
@@ -17,7 +18,7 @@ composer require andrewtweber/dose-calculator
 ## Usage
 
 Implement the `MedicineContract`. Doses should be stored in "mg/kg", concentrations in "mg/mL".
-The doses are returned in "mL" but only the numerical value is returned.
+Weights are input in "kg". The doses are returned in "mL" but only the numerical value is returned.
 
 ```php
 $medicine = new Medicine(
