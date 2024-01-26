@@ -22,7 +22,7 @@ if (! function_exists('bcceil')) {
     {
         return bcnegative($number)
             ? (($v = bcfloor(substr($number, 1))) ? "-$v" : $v)
-            : bcadd(strtok($number, '.'), strtok('.') != 0);
+            : bcadd(strtok($number, '.'), (string)(strtok('.') != 0));
     }
 }
 
@@ -49,8 +49,8 @@ if (! function_exists('bcround')) {
      */
     function bcround(mixed $number, int $precision = 0): string
     {
-        $e = bcpow(10, $precision + 1);
+        $e = bcpow('10', (string)($precision + 1));
 
-        return bcdiv(bcadd(bcmul($number, $e, 0), bcnegative($number) ? -5 : 5), $e, $precision);
+        return bcdiv(bcadd(bcmul($number, $e, 0), bcnegative($number) ? '-5' : '5'), $e, $precision);
     }
 }

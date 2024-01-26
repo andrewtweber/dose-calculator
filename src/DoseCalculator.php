@@ -47,7 +47,7 @@ class DoseCalculator
         $mg = $parts[1];
         $kg = $parts[2] ?: 1;
 
-        if ($kg === 0) {
+        if ((int)$kg === 0) {
             $kg = 1;
         }
 
@@ -111,6 +111,8 @@ class DoseCalculator
             throw new DoseCalculationException("No weights logged");
         }
 
+        // TODO: add contract for Weight class
+        /** @phpstan-ignore-next-line */
         return $this->calculateRange($weight->weight, $final_precision);
     }
 
@@ -144,7 +146,7 @@ class DoseCalculator
          ***********************************************/
 
         $dose = bcdiv(
-            bcmul($dosing_in_mg_per_kg, $weight_in_kg, $final_precision + 1),
+            bcmul($dosing_in_mg_per_kg, (string)$weight_in_kg, $final_precision + 1),
             $concentration_in_mg_per_ml,
             $final_precision + 1
         );

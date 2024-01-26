@@ -15,7 +15,7 @@ class DoseCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function dosing_calculation()
+    public function dosing_calculation(): void
     {
         $medicine = new Medicine(
             name: 'Medicine 1',
@@ -110,7 +110,7 @@ class DoseCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function concentration_calculation()
+    public function concentration_calculation(): void
     {
         $medicine = new Medicine(
             name: 'Medicine 1',
@@ -182,7 +182,7 @@ class DoseCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function dose_calculation_fails_with_concentration_missing()
+    public function dose_calculation_fails_with_concentration_missing(): void
     {
         $medicine = new Medicine(
             name: 'Medicine 1',
@@ -200,7 +200,7 @@ class DoseCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function dose_calculation_fails_with_min_dose_missing()
+    public function dose_calculation_fails_with_min_dose_missing(): void
     {
         $medicine = new Medicine(
             name: 'Medicine 1',
@@ -218,7 +218,7 @@ class DoseCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function dose_calculation_for_amoxicillin()
+    public function dose_calculation_for_amoxicillin(): void
     {
         $medicine = new Medicine(
             name: 'Amoxicillin',
@@ -237,7 +237,7 @@ class DoseCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function dose_calculation_for_medication_with_range_and_rounding_up()
+    public function dose_calculation_for_medication_with_range_and_rounding_up(): void
     {
         $medicine = new Medicine(
             name: 'Amoxicillin',
@@ -257,7 +257,7 @@ class DoseCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function dose_calculation_for_azithromycin()
+    public function dose_calculation_for_azithromycin(): void
     {
         $medicine = new Medicine(
             name: 'Azithromycin',
@@ -273,7 +273,7 @@ class DoseCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function dose_calculation_for_famotidine()
+    public function dose_calculation_for_famotidine(): void
     {
         $medicine = new Medicine(
             name: 'Famotidine',
