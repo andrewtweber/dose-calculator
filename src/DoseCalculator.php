@@ -121,9 +121,9 @@ class DoseCalculator
      * @param bool  $max
      * @param int   $final_precision
      *
-     * @return string
+     * @return DoseResult
      */
-    public function calculate(float $weight_in_kg, bool $max = false, int $final_precision = 2): string
+    public function calculate(float $weight_in_kg, bool $max = false, int $final_precision = 2): DoseResult
     {
         $concentration_in_mg_per_ml = $this->concentrationPerMl($final_precision + 1);
         $dosing_in_mg_per_kg = $max
@@ -152,24 +152,24 @@ class DoseCalculator
         );
 
         // Want to make sure we round up if > .5
-        return bcround($dose, $final_precision);
+        return new DoseResult(bcround($dose, $final_precision), unit: 'mL');
     }
 
     /**
      * @param float $weight_in_kg
      * @param int   $final_precision
      *
-     * @return string
+     * @return DoseResult
      */
-    public function calculateRange(float $weight_in_kg, int $final_precision = 2): string
+    public function calculateRange(float $weight_in_kg, int $final_precision = 2): DoseResult
     {
         $min = $this->calculate($weight_in_kg, final_precision: $final_precision);
         $max = $this->calculate($weight_in_kg, max: true, final_precision: $final_precision);
 
-        if ($min === $max) {
+        if ($min->equals($max)) {
             return $min;
         }
 
-        return "{$min} - {$max}";
+        return new DoseResult($min->min, $max->min, 'mL');
     }
 }

@@ -227,11 +227,11 @@ class DoseCalculatorTest extends TestCase
         );
 
         $calc = new DoseCalculator($medicine);
-        $this->assertSame('0.33', $calc->calculate(0.834));
-        $this->assertSame('0.33', $calc->calculate(0.834, max: true));
-        $this->assertSame('0.33', $calc->calculateRange(0.834));
-        $this->assertSame('0.334', $calc->calculate(0.834, final_precision: 3));
-        $this->assertSame('0.3336', $calc->calculate(0.834, final_precision: 4));
+        $this->assertSame('0.33 mL', (string)$calc->calculate(0.834));
+        $this->assertSame('0.33 mL', (string)$calc->calculate(0.834, max: true));
+        $this->assertSame('0.33 mL', (string)$calc->calculateRange(0.834));
+        $this->assertSame('0.334 mL', (string)$calc->calculate(0.834, final_precision: 3));
+        $this->assertSame('0.3336 mL', (string)$calc->calculate(0.834, final_precision: 4));
     }
 
     /**
@@ -247,11 +247,11 @@ class DoseCalculatorTest extends TestCase
         );
 
         $calc = new DoseCalculator($medicine);
-        $this->assertSame('0.33', $calc->calculate(0.834));
-        $this->assertSame('0.67', $calc->calculate(0.834, max: true));
-        $this->assertSame('0.33 - 0.67', $calc->calculateRange(0.834));
-        $this->assertSame('0.334 - 0.667', $calc->calculateRange(0.834, final_precision: 3));
-        $this->assertSame('0.3336 - 0.6672', $calc->calculateRange(0.834, final_precision: 4));
+        $this->assertSame('0.33 mL', (string)$calc->calculate(0.834));
+        $this->assertSame('0.67 mL', (string)$calc->calculate(0.834, max: true));
+        $this->assertSame('0.33 - 0.67 mL', (string)$calc->calculateRange(0.834));
+        $this->assertSame('0.334 - 0.667 mL', (string)$calc->calculateRange(0.834, final_precision: 3));
+        $this->assertSame('0.3336 - 0.6672 mL', (string)$calc->calculateRange(0.834, final_precision: 4));
     }
 
     /**
@@ -266,8 +266,8 @@ class DoseCalculatorTest extends TestCase
         );
 
         $calc = new DoseCalculator($medicine);
-        $this->assertSame('0.30', $calc->calculate(1.2));
-        $this->assertSame('0.3', $calc->calculate(1.2, final_precision: 1));
+        $this->assertSame('0.30 mL', (string)$calc->calculate(1.2));
+        $this->assertSame('0.3 mL', (string)$calc->calculate(1.2, final_precision: 1));
     }
 
     /**
@@ -282,7 +282,7 @@ class DoseCalculatorTest extends TestCase
         );
 
         $calc = new DoseCalculator($medicine);
-        $this->assertSame('0.16', $calc->calculate(1.31));
-        $this->assertSame('0.2', $calc->calculate(1.31, final_precision: 1));
+        $this->assertSame('0.16 mL', (string)$calc->calculate(1.31));
+        $this->assertSame('0.2 mL', (string)$calc->calculate(1.31, final_precision: 1));
     }
 }

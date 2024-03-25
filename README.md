@@ -29,7 +29,7 @@ $medicine = new Medicine(
 $calculator = new DoseCalculator($medicine);
 
 // Returns minimum dose by default
-$calculator->calculate(0.834); 
+($calculator->calculate(0.834); 
 // "0.33"
 
 // Specify precision
