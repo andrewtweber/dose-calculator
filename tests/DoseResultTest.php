@@ -9,7 +9,7 @@ class DoseResultTest extends TestCase
     /**
      * @test
      */
-    public function dose_result_formatting()
+    public function dose_result_formatting(): void
     {
         $result = new DoseResult('0.12');
         $this->assertSame('0.12 mL', (string)$result);
@@ -33,7 +33,7 @@ class DoseResultTest extends TestCase
     /**
      * @test
      */
-    public function dose_result_when_min_and_max_are_same()
+    public function dose_result_when_min_and_max_are_same(): void
     {
         $result = new DoseResult('0.12', '0.12');
         $this->assertSame('0.12', $result->min);
@@ -50,7 +50,7 @@ class DoseResultTest extends TestCase
     /**
      * @test
      */
-    public function dose_result_comparison()
+    public function dose_result_comparison(): void
     {
         $result1 = new DoseResult('0.12');
         $result2 = new DoseResult('0.12', '0.12');
