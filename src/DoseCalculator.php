@@ -99,9 +99,9 @@ class DoseCalculator
      * @param HasWeightsContract $model
      * @param int                $final_precision
      *
-     * @return string
+     * @return DoseResult
      */
-    public function calculateFor(HasWeightsContract $model, int $final_precision = 2): string
+    public function calculateFor(HasWeightsContract $model, int $final_precision = 2): DoseResult
     {
         $weight = $model->weights()
             ->orderBy('created_at', 'desc')
