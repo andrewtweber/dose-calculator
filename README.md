@@ -18,7 +18,8 @@ composer require andrewtweber/dose-calculator
 ## Usage
 
 Implement the `MedicineContract`. Doses should be stored in "mg/kg", concentrations in "mg/mL".
-Weights are input in "kg". The doses are returned in "mL" but only the numerical value is returned.
+Weights are input in "kg". The doses are returned as a `DoseResult` object, with min and max values
+and a unit a measurement.
 
 ```php
 $medicine = new Medicine(
@@ -29,7 +30,7 @@ $medicine = new Medicine(
 $calculator = new DoseCalculator($medicine);
 
 // Returns minimum dose by default
-($calculator->calculate(0.834); 
+$calculator->calculate(0.834); 
 // "0.33"
 
 // Specify precision
