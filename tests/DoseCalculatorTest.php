@@ -194,7 +194,7 @@ class DoseCalculatorTest extends TestCase
         $this->expectExceptionMessage("Unable to calculate dose - missing concentration");
 
         $calc = new DoseCalculator($medicine);
-        $this->assertNull($calc->calculate(0.834));
+        $calc->calculate(0.834);
     }
 
     /**
@@ -212,7 +212,7 @@ class DoseCalculatorTest extends TestCase
         $this->expectExceptionMessage("Unable to calculate dose - missing dosing information");
 
         $calc = new DoseCalculator($medicine);
-        $this->assertNull($calc->calculate(0.834));
+        $calc->calculate(0.834);
     }
 
     /**
